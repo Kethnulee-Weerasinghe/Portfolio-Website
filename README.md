@@ -19,10 +19,10 @@ This portfolio site is designed to present a clear, concise view of my professio
 
 ## Technologies
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
-- React.js
+- React
 - Web3Forms (contact form handling)
 
 ## Running Locally
