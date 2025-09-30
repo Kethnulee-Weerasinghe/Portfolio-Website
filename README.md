@@ -2,7 +2,7 @@
 
 A fully responsive and modern personal portfolio website to showcase my frontend development skills, selected projects, education, and technical expertise.
 
-**Live Website:** [https://your-live-site-link.com]([https://your-live-site-link.com](https://kethnulee-weerasinghe.github.io/Portfolio-Website/))
+**Live Website:** [https://kethnulee-weerasinghe.github.io/Portfolio-Website/](https://kethnulee-weerasinghe.github.io/Portfolio-Website/)
 
 ![Portfolio Website Screenshot](./screenshot.png)
 
