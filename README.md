@@ -1,8 +1,8 @@
-# Kethnulee Weerasinghe – Portfolio Website
+# Portfolio Website
 
 A fully responsive and modern personal portfolio website to showcase my frontend development skills, selected projects, education, and technical expertise.
 
-**Live Website:** [https://your-live-site-link.com](https://your-live-site-link.com)
+**Live Website:** [https://your-live-site-link.com]([https://your-live-site-link.com](https://kethnulee-weerasinghe.github.io/Portfolio-Website/))
 
 ![Portfolio Website Screenshot](./screenshot.png)
 
@@ -15,7 +15,7 @@ This portfolio site is designed to present a clear, concise view of my professio
 - Timeline-based education section
 - Categorized technical skill set
 - Responsive layout for desktop, tablet, and mobile
-- Contact form integration using Web3Forms
+- Contact form
 
 ## Technologies
 
