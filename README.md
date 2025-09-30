@@ -4,7 +4,7 @@ A fully responsive and modern personal portfolio website to showcase my frontend
 
 **Live Website:** [https://kethnulee-weerasinghe.github.io/Portfolio-Website/](https://kethnulee-weerasinghe.github.io/Portfolio-Website/)
 
-![Portfolio Website Screenshot](./preview.png)
+![Portfolio Website Preview](./preview.png)
 
 ## Overview
 
