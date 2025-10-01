@@ -8,7 +8,7 @@ A personal, responsive web portfolio built to showcase academic projects, techni
 
 ## Overview
 
-This portfolio site is designed to present a clear, concise view of my professional profile. It includes:
+This portfolio site is designed to present a clear, concise view of my professional profile.
 
 - Project highlights with GitHub links
 - Downloadable resume
