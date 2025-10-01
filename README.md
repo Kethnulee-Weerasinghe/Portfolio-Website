@@ -1,10 +1,10 @@
 # Portfolio Website
 
-A fully responsive and modern personal portfolio website to showcase my frontend development skills, selected projects, education, and technical expertise.
+A personal, responsive web portfolio built to showcase academic projects, technical skills, and GitHub work. Designed with clear navigation and minimalistic aesthetics, the site reflects both frontend development proficiency and attention to user experience.
 
 **Live Website:** [https://kethnulee-weerasinghe.github.io/Portfolio-Website/](https://kethnulee-weerasinghe.github.io/Portfolio-Website/)
 
-![Portfolio Website Preview](./preview.png)
+![Website Preview](./preview.png)
 
 ## Overview
 
