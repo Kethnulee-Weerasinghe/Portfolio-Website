@@ -1,5 +1,6 @@
 # Portfolio Website
 
+A clean, fully responsive personal portfolio site built with HTML, CSS, JavaScript, and React. It features a downloadable resume, timeline-based education & experience, categorized skill sets, and an integrated contact form. Designed to present professional identity with clarity, strong UX, and seamless cross‑device performance.
 
 **Live Website:** [https://kethnulee-weerasinghe.github.io/Portfolio-Website/](https://kethnulee-weerasinghe.github.io/Portfolio-Website/)
 
