@@ -1,473 +1,476 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kethnulee — Portfolio</title>
-
-<style>
-
-  /* Global Style */
-  body, html, #root {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000; 
-    color: #c9d1d9; 
-    scroll-behavior: smooth;
-  }
-
-  section {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: auto;
-  }
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-
-  /* NAV */
-  .site-nav {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:1rem;
-    padding:12px 28px;
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:var(--bg); 
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    backdrop-filter: blur(6px);
-  }
-
-  .nav-left, .nav-right {
-    display:flex;
-    align-items:center;
-    gap:18px;
-  }
-
-  .nav-left a {
-    color:var(--text);
-    text-decoration:none;
-    font-weight:600;
-    padding:6px 8px;
-    transition:opacity .16s ease, transform .12s ease;
-  }
-
-  .nav-left a:hover {
-    opacity:.85; 
-    transform:translateY(-1px);
-  }
-
-  .nav-right a {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:36px;height:36px;
-    text-decoration:none;
-    color:var(--text);
-    border-radius:8px;
-    transition:background .12s ease, transform .12s ease;
-  }
-
-  .nav-right a:hover {
-    background:rgba(255,255,255,0.03); 
-    transform:translateY(-2px);
-  }
-
-  /* Layout container */
-  .container {
-    max-width:1100px;
-    margin: 36px auto;
-    padding: 0 20px;
-  }
-
-  /* HOME */
-  .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 20px 40px;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
-
-  .intro-text {
-    max-width: 420px;
-    text-align: left;
-  }
-
-  .intro-text p {
-    font-size: 1rem;
-    color: #9da5b4;
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-
-  .intro-text h1 {
-    font-size: 2.8rem;
-    margin-bottom: 18px;
-    color: #ffffff;
-  }
-
-  .intro-text h4 {
-    margin-bottom: 18px;
-    color: #00bfff; 
-  }
-
-  .cta-button {
-   display: inline-block;
-   padding: 0.8rem 1.5rem;
-   background-color: #238636;
-   color: #fff;
-   border-radius: 30px;
-   text-decoration: none;
-   font-weight: 500;
-   transition: background 0.3s, transform 0.3s;
-  }
-
-  .cta-button:hover {
-    background-color: #238636;
-    transform: translateY(-3px);
-  }
-
-  .profile-image img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: top center;
-    border: 3px solid #30363d;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-  }
-
-  .card-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap; 
-    gap: 24px;
-    margin-top: 40px;
-    padding: 0 20px 80px;
-    overflow-x: auto; 
-  }
-
-  .card {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 10px;
-    padding: 24px;
-    width: 280px;
-    color: #c9d1d9;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-  }
-
-  .card h3 {
-    color: #58a6ff; 
-    margin-bottom: 12px;
-    font-size: 1.2rem;
-  }
-
-  .card p {
-    font-size: 0.95rem;
-    color: #9da5b4;
-    line-height: 1.5;
-  }
-
-  /* PROJECTS */
-  .projects-section {
-    padding: 100px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-    color: #fff;
-  } 
-
-  .projects-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: #58a6ff;
-    letter-spacing: 1px;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 50px;
-  }
-
-  .project-card {
-    background: #1a1a1a;
-    border: 1px solid #2e2e2e;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-8px);
-    border-color: #58a6ff;
-  }
-
-  .project-card h3 {
-    font-size: 1.3rem;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-
-  .project-card p {
-    font-size: 0.95rem;
-    color: #ccc;
-    margin-bottom: 10px;
-  }
-
-  .project-card .tech {
-    font-size: 0.85rem;
-    color: #999;
-    font-style: italic;
-    margin-bottom: 12px;
-  }
-
-  .project-link {
-    display: inline-block;
-    margin-top: 8px;
-    color: #58a6ff;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .project-link:hover {
-    text-decoration: underline;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-    color: #fff;
-    margin-bottom: 0.3rem;
-  }
-
-  .hero .subtitle {
-    font-size: 1.1rem;
-    color: #58a6ff;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-  }
-
-  /* SKILLS */
-  .skills-section {
-    padding: 100px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-    color: #fff;
-  }
-
-  .skills-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 60px;
-    color: #58a6ff;
-    letter-spacing: 1px;
-  }
-
-  .skill-category {
-    margin-bottom: 50px;
-    background: rgba(24, 24, 24, 0.4);
-    backdrop-filter: blur(8px);
-    border: 1px solid #2c2c2c;
-    border-radius: 16px;
-    padding: 24px 30px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease;
-  }
-
-  .skill-category:hover {
-    transform: translateY(-4px);
-    border-color: #58a6ff;
-  }
-
-  .skill-category h3 {
-    font-size: 1.4rem;
-    margin-bottom: 18px;
-    color: #58a6ff;
-    border-left: 4px solid #58a6ff;
-    padding-left: 12px;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .skill-tag {
-    background: linear-gradient(145deg, #1b1f24, #1a1d22);
-    color: #c9d1d9;
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    border: 1px solid #30363d;
-    box-shadow: inset 0 0 0 1px rgba(88, 166, 255, 0.1);
-    transition: all 0.25s ease;
-    cursor: default;
-  }
-
-  .skill-tag:hover {
-    background-color: #58a6ff;
-    color: #0d1117;
-    transform: scale(1.05);
-  }
-
-  /* EDUCATION */
-  .education-section {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .education-section h2 {
-    font-size: 2rem;
-    color: #58a6ff;
-    text-align: center;
-    margin-bottom: 60px;
-    letter-spacing: 1px;
-  }
-
-  .timeline-wrapper {
-    position: relative;
-    padding: 40px 0;
-  }
-
-  .timeline-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    background-color: #30363d;
-    transform: translateX(-50%);
-    z-index: 0;
-  }
-
-  .timeline-dot {
-    position: absolute;
-    top: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 16px;
-    height: 16px;
-    background-color: #58a6ff;
-    border-radius: 50%;
-    border: 2px solid #0d1117;
-    z-index: 2;
-    animation: pulse 2s infinite ease-in-out;
-  }
-
-  .timeline-item {
-    position: relative;
-    width: 100%;
-    margin: 50px 0;
-    display: flex;
-  }
-
-  .timeline-item.left {
-    justify-content: flex-end;
-  }
-
-  .timeline-item.right {
-    justify-content: flex-start;
-  }
-
-  .timeline-card {
-    background: #161b22;
-    padding: 20px 24px;
-    border-radius: 10px;
-    width: 420px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-    color: #fff;
-    z-index: 1;
-  }
-
-  .timeline-card h3 {
-    margin: 0 0 6px 0;
-    font-size: 1.15rem;
-    color: #ffffff;
-  }
-
-  .timeline-place {
-    font-size: 0.95rem;
-    color: #9da5b4;
-  }
-
-  .timeline-year {
-    font-size: 0.9rem;
-    color: #58a6ff;
-    margin-top: 4px;
-  }
-
- /* CONTACT */
- .contact-section {
-   padding: 100px 20px;
-   max-width: 700px;
-   margin: 0 auto;
-   color: #fff;
- }
-
-  .contact-section h2 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #58a6ff;
-  letter-spacing: 1px;
-}
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 14px;
-    background-color: #1c1c1c;
-    color: #fff;
-    border: 1px solid #333;
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-    resize: none;
-  }
-
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: #888;
-  }
-
-  .contact-form button {
-    padding: 12px;
-    background-color: #58a6ff;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .contact-form button:hover {
-    background-color: #4097ff;
-  }
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kethnulee — Portfolio</title>
+
+  <style>
+    /* Global Style */
+    body,
+    html,
+    #root {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #c9d1d9;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    /* NAV */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 12px 28px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-left a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 8px;
+      transition: opacity .16s ease, transform .12s ease;
+    }
+
+    .nav-left a:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
+
+    .nav-right a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      text-decoration: none;
+      color: var(--text);
+      border-radius: 8px;
+      transition: background .12s ease, transform .12s ease;
+    }
+
+    .nav-right a:hover {
+      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-2px);
+    }
+
+    /* Layout container */
+    .container {
+      max-width: 1100px;
+      margin: 36px auto;
+      padding: 0 20px;
+    }
+
+    /* HOME */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px 40px;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .intro-text {
+      max-width: 420px;
+      text-align: left;
+    }
+
+    .intro-text p {
+      font-size: 1rem;
+      color: #9da5b4;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .intro-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+
+    .intro-text h4 {
+      margin-bottom: 18px;
+      color: #00bfff;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #238636;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #238636;
+      transform: translateY(-3px);
+    }
+
+    .profile-image img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 3px solid #30363d;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 24px;
+      margin-top: 40px;
+      padding: 0 20px 80px;
+      overflow-x: auto;
+    }
+
+    .card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 24px;
+      width: 280px;
+      color: #c9d1d9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      color: #58a6ff;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #9da5b4;
+      line-height: 1.5;
+    }
+
+    /* PROJECTS */
+    .projects-section {
+      padding: 100px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .projects-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      color: #58a6ff;
+      letter-spacing: 1px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #58a6ff;
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .project-card .tech {
+      font-size: 0.85rem;
+      color: #999;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: #58a6ff;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    /* SKILLS */
+    .skills-section {
+      padding: 100px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .skills-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 60px;
+      color: #58a6ff;
+      letter-spacing: 1px;
+    }
+
+    .skill-category {
+      margin-bottom: 50px;
+      background: rgba(24, 24, 24, 0.4);
+      backdrop-filter: blur(8px);
+      border: 1px solid #2c2c2c;
+      border-radius: 16px;
+      padding: 24px 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: 0.3s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-4px);
+      border-color: #58a6ff;
+    }
+
+    .skill-category h3 {
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      color: #58a6ff;
+      border-left: 4px solid #58a6ff;
+      padding-left: 12px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-tag {
+      background: linear-gradient(145deg, #1b1f24, #1a1d22);
+      color: #c9d1d9;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      border: 1px solid #30363d;
+      box-shadow: inset 0 0 0 1px rgba(88, 166, 255, 0.1);
+      transition: all 0.25s ease;
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      background-color: #58a6ff;
+      color: #0d1117;
+      transform: scale(1.05);
+    }
+
+    /* EDUCATION */
+    .education-section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .education-section h2 {
+      font-size: 2rem;
+      color: #58a6ff;
+      text-align: center;
+      margin-bottom: 60px;
+      letter-spacing: 1px;
+    }
+
+    .timeline-wrapper {
+      position: relative;
+      padding: 40px 0;
+    }
+
+    .timeline-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background-color: #30363d;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background-color: #58a6ff;
+      border-radius: 50%;
+      border: 2px solid #0d1117;
+      z-index: 2;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      margin: 50px 0;
+      display: flex;
+    }
+
+    .timeline-item.left {
+      justify-content: flex-end;
+    }
+
+    .timeline-item.right {
+      justify-content: flex-start;
+    }
+
+    .timeline-card {
+      background: #161b22;
+      padding: 20px 24px;
+      border-radius: 10px;
+      width: 420px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      z-index: 1;
+    }
+
+    .timeline-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 1.15rem;
+      color: #ffffff;
+    }
+
+    .timeline-place {
+      font-size: 0.95rem;
+      color: #9da5b4;
+    }
+
+    .timeline-year {
+      font-size: 0.9rem;
+      color: #58a6ff;
+      margin-top: 4px;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      padding: 100px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #58a6ff;
+      letter-spacing: 1px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px;
+      background-color: #1c1c1c;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      resize: none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #888;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      background-color: #58a6ff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #4097ff;
+    }
+  </style>
 
 </head>
 
@@ -485,23 +488,31 @@
 
     <div class="nav-right" aria-hidden="false">
       <!-- GitHub -->
-      <a href="https://github.com/Kethnulee-Weerasinghe" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
-        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49C3.7 13.91 3.14 12.7 3.14 12.7c-.36-.92-.88-1.17-.88-1.17-.72-.5.05-.49.05-.49.8.06 1.22.82 1.22.82.71 1.22 1.86.87 2.31.66.07-.52.28-.87.5-1.07-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 018 3.3c.85.004 1.71.115 2.51.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.29.25.54.73.54 1.48 0 1.07-.01 1.94-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      <a href="https://github.com/Kethnulee-Weerasinghe" target="_blank" rel="noopener noreferrer" title="GitHub"
+        aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path fill="currentColor"
+            d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49C3.7 13.91 3.14 12.7 3.14 12.7c-.36-.92-.88-1.17-.88-1.17-.72-.5.05-.49.05-.49.8.06 1.22.82 1.22.82.71 1.22 1.86.87 2.31.66.07-.52.28-.87.5-1.07-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.6 9.6 0 018 3.3c.85.004 1.71.115 2.51.34 1.9-1.29 2.74-1.02 2.74-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.29.25.54.73.54 1.48 0 1.07-.01 1.94-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
         </svg>
       </a>
 
       <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/kethnulee-weerasinghe" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8.5 8h3.8v2.2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.09V24h-4V15.3c0-2.07-.04-4.73-2.88-4.73-2.88 0-3.32 2.24-3.32 4.56V24h-4V8z"/>
+      <a href="https://www.linkedin.com/in/kethnulee-weerasinghe" target="_blank" rel="noopener noreferrer"
+        title="LinkedIn" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor"
+            d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zM8.5 8h3.8v2.2h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.09V24h-4V15.3c0-2.07-.04-4.73-2.88-4.73-2.88 0-3.32 2.24-3.32 4.56V24h-4V8z" />
         </svg>
       </a>
 
       <!-- Email -->
       <a href="mailto:your.kethnuleew@gmail.com" title="Email" aria-label="Email">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor" d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor"
+            d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
         </svg>
       </a>
     </div>
@@ -516,12 +527,11 @@
           <h1>Kethnulee</h1>
           <h4>BEng (Hons) Software Engineering</h4>
           <p>
-            Passionate about crafting responsive, accessible, and user-friendly
-            web applications. Skilled in building modern interfaces while
-            continuously learning new frontend technologies.
+            Front-end developer passionate about building responsive, accessible, and user-centric web applications.
+            Skilled in modern UI development and continuously exploring new technologies.
           </p>
           <a class="cta-button" href="Kethnulee-CV.pdf" download>
-           Download CV
+            Download CV
           </a>
 
         </div>
@@ -564,133 +574,104 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <h3>Portfolio Website</h3>
+          <h3>Event Booking App</h3>
           <p>
-            Responsive portfolio showcasing frontend skills, projects, and 
-            a downloadable CV with smooth navigation and a functional contact form.
+            A fully functional, web application for browsing, booking events, and generating tickets.
+            Built with React and Tailwind CSS, it features dynamic event listings, search and filter
+            functionality, and a streamlined booking flow.
           </p>
-          <p class="tech">Tech: React, JavaScript, HTML, CSS</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/Portfolio-Website" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Porsche AI ChatBot</h3>
-          <p>
-            Web-based AI assistant using OpenAI’s language model, featuring responsive design 
-            and integrated voice interaction for Porsche-related queries.
-          </p>
-          <p class="tech">Tech: JavaScript, HTML, CSS, React, OpenAI API</p>
-          <a href="https://github.com/Kethnulee-Weearsinghe/Porsche-AI-ChatBot" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Typing Speed Test App</h3>
-          <p>
-            An interactive typing speed test application featuring real-time performance metrics,
-            dynamic quotes, and a user-friendly interface designed to enhance typing skills.
-          </p>
-          <p class="tech">Tech: HTML, CSS, JavaScript</p>
-          <a href="https://github.com/Kethnulee-Weearsinghe/Typing-Speed-Test-App" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Responsive Headphones Website</h3>
-          <p>
-            A visually engaging, mobile-first website showcasing a headphone-themed design with
-            scrolling animations, smooth navigation, and responsive layout.
-          </p>
-          <p class="tech">Tech: HTML, CSS, JavaScript</p>
-          <a href="https://github.com/Kethnulee-Weearsinghe/Responsive-Headphones-Website" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Responsive Sidebar Menu</h3>
-          <p>
-            A fully responsive sidebar menu that adapts across different screen sizes. Built without
-            external frameworks, offering a clean, lightweight, and intuitive interface.
-          </p>
-          <p class="tech">Tech: HTML, CSS, JavaScript</p>
-          <a href="https://github.com/Kethnulee-Weearsinghe/Responsive-Sidebar-Menu" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Responsive Fried Chicken Website</h3>
-          <p>
-            A visually engaging web project designed to adapt seamlessly across 
-            desktop, tablet, and mobile. Includes interactive elements and a user-friendly design.
-          </p>
-          <p class="tech">Tech: HTML, CSS, JavaScript</p>
-          <a href="https://github.com/Kethnulee-Weearsinghe/Responsive-Fried-Chicken-Website" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>BookHaven</h3>
-          <p>
-            C# Windows Forms application for bookstore management 
-            inventory control, sales processing, customer/supplier management, and order tracking.
-          </p>
-          <p class="tech">Tech: C#, .NET Framework, SQL Server</p>
-          <a href="https://github.com/Kethnulee-Weearsinghe/BookHaven" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Todo List App</h3>
-          <p>
-            A simple Todo List application, featured with a clean, responsive 
-            UI with interactive elements for intuitive task management.          
-          </p>
-          <p class="tech">Tech: React, TypeScript, Tailwind CSS, Vite</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/Todo-App" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Weather App</h3>
-          <p>
-            Responsive interface Weather App with dynamic gradient backgrounds, 
-            animated loading states, and a clean, modular component structure.         
-          </p>
-          <p class="tech">Tech: React, JavaScript, CSS</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/Weather-App" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Recipe Finder App</h3>
-          <p>
-            A simple application offers a premium interface with elegant typography, 
-            smooth animations, and user search, browsing, and viewing recipes.        
-          </p>
-          <p class="tech">Tech: React, JavaScript, Tailwind CSS</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/Recipe-Finder-App" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
+          <p class="tech">Tech: React, TypeScript, Tailwind CSS, PostCSS, Framer Motion</p>
+          <a href="https://github.com/Kethnulee-Weerasinghe/Event-Booking-App" target="_blank" rel="noopener noreferrer"
+            class="project-link">View on GitHub</a>
         </div>
 
         <div class="project-card">
           <h3>NEWS App</h3>
           <p>
-            A News application that fetches and displays the latest headlines and 
-            layout with a clean newspaper-style column design.        
+            A responsive frontend news application built with React, Tailwind CSS, and Framer Motion.
+            It features real-time content integration via APIs, delivering a clean, intuitive UI.
+            With smooth animations. The project showcases strong front-end expertise in crafting dynamic,
+            performant, and visually engaging user experiences across all devices.
           </p>
-          <p class="tech">Tech: React, JavaScript, CSS, API</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/NEWS-App" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Event Booking App</h3>
-          <p>
-            A web application for browsing and booking tickets to music concerts and festivals. 
-            Featured with a sleek UI, event search functionality.      
-          </p>
-          <p class="tech">Tech: React.js, Next.js, Tailwind CSS, Node.js, Framer Motion</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/Event-Booking-App" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
+          <p class="tech">Tech: JavaScript, React, Tailwind CSS, API</p>
+          <a href="https://github.com/Kethnulee-Weerasinghe/NEWS-App" target="_blank" rel="noopener noreferrer"
+            class="project-link">View on GitHub</a>
         </div>
 
         <div class="project-card">
           <h3>NFT Website</h3>
           <p>
-            Responsive NFT Website featured wuth smooth styling, ScrollReveal animations, 
-            and a mobile-first design.     
+            A smooth, mobile‑first front‑end project built with HTML, CSS, and JavaScript.
+            Features scroll‑based animations, interactive UI components, and a clean, minimal design
+            that emphasizes performance and accessibility. Demonstrates proficiency in building
+            visually engaging and responsive web experiences optimized across devices.
           </p>
-          <p class="tech">Tech: Javascript, HTML, CSS</p>
-          <a href="https://github.com/Kethnulee-Weerasinghe/NFT-Website" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
+          <p class="tech">Tech: HTML, CSS, JavaScript</p>
+          <a href="https://github.com/Kethnulee-Weerasinghe/NFT-Website" target="_blank" rel="noopener noreferrer"
+            class="project-link">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Porsche AI Chatbot</h3>
+          <p>
+            An intelligent, frontend-focused AI chatbot tailored for Porsche enthusiasts. Built using modern web
+            technologies and connected to AI‑powered APIs, it delivers contextual conversation, and car-specific
+            insights. The project demonstrates strong expertise in UI/UX, asynchronous data handling in a polished,
+            user-centric interface.
+          </p>
+          <p class="tech">Tech: HTML, CSS, JavaScript, React, OpenAI API, Fetch API</p>
+          <a href="https://github.com/Kethnulee-Weerasinghe/Porsche-AI-ChatBot" target="_blank"
+            rel="noopener noreferrer" class="project-link">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>
+            A clean, fully responsive personal portfolio site built with HTML, CSS, JavaScript, and React. It features a
+            downloadable resume, timeline-based education & experience, categorized skill sets, and an integrated
+            contact form. Designed to present professional identity with clarity, strong UX, and seamless cross‑device
+            performance.
+          </p>
+          <p class="tech">Tech: HTML, CSS, JavaScript, React</p>
+          <a href="https://github.com/Kethnulee-Weerasinghe/Portfolio-Website" target="_blank" rel="noopener noreferrer"
+            class="project-link">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Responsive Headphones Website</h3>
+          <p>
+            A sleek, fully responsive web application demonstrating front-end development skills.
+            Built with clean HTML, CSS, and JavaScript, this project showcases a user-centric design
+            with smooth interactions and cross-device compatibility. It highlights visually appealing,
+            intuitive, and performant web experiences optimized for seamless user engagement.
+          </p>
+          <p class="tech">Tech: HTML, CSS, JavaScript</p>
+          <a href="https://github.com/Kethnulee-Weearsinghe/Responsive-Headphones-Website" target="_blank"
+            rel="noopener noreferrer" class="project-link">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Responsive Sidebar Menu</h3>
+          <p>
+            A frontend-only, fully responsive sidebar navigation menu built with HTML, CSS, and JavaScript.
+            It features smooth slide-in animations, toggle functionality, and adaptive design for all screen sizes.
+            This project showcases core frontend skills in building clean, interactive, and user-friendly UI components.
+          </p>
+          <p class="tech">Tech: HTML, CSS, JavaScript</p>
+          <a href="https://github.com/Kethnulee-Weearsinghe/Responsive-Sidebar-Menu" target="_blank"
+            rel="noopener noreferrer" class="project-link">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+          <h3>BookHaven</h3>
+          <p>
+            BookHaven C# Windows Forms desktop application designed to streamline bookstore operations.
+            It features secure role-based access, comprehensive inventory management, sales processing,
+            customer and supplier management, order tracking, and reporting tools.
+          </p>
+          <p class="tech">Tech: C#, .NET Framework</p>
+          <a href="https://github.com/Kethnulee-Weearsinghe/BookHaven" target="_blank" rel="noopener noreferrer"
+            class="project-link">View on GitHub</a>
         </div>
 
       </div>
@@ -701,66 +682,56 @@
       <h2>Skills</h2>
 
       <div class="skill-category">
-        <h3>Frontend Development</h3>
+        <h3>Languages</h3>
         <div class="skill-tags">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Next.js</span>
-          <span class="skill-tag">React Native</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">TypeScript</span>
           <span class="skill-tag">HTML</span>
           <span class="skill-tag">CSS</span>
-          <span class="skill-tag">Sass</span>
-          <span class="skill-tag">Tailwind CSS</span>
-          <span class="skill-tag">Bootstrap</span>
-          <span class="skill-tag">Responsive Design</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <h3>Backend & APIs</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
           <span class="skill-tag">C#</span>
-          <span class="skill-tag">ASP.NET MVC</span>
-          <span class="skill-tag">.NET Framework</span>
-          <span class="skill-tag">Entity Framework</span>
-          <span class="skill-tag">RESTful APIs</span>
-          <span class="skill-tag">Nodemailer</span>
-          <span class="skill-tag">Authentication & RBAC</span>
-          <span class="skill-tag">Fetch API</span>
-          <span class="skill-tag">HTTP</span>
+          <span class="skill-tag">PHP</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3>Databases</h3>
+        <h3>Frameworks & Libraries</h3>
         <div class="skill-tags">
-          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">SASS</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">React Native</span>
+          <span class="skill-tag">Bootstrap</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Database</h3>
+        <div class="skill-tags">
           <span class="skill-tag">MySQL</span>
           <span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">PostgreSQL</span>
           <span class="skill-tag">PHPMyAdmin</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3>UI/UX & Tools</h3>
+        <h3>APIs & Backend Services</h3>
         <div class="skill-tags">
-          <span class="skill-tag">Figma</span>
-          <span class="skill-tag">Canva</span>
-          <span class="skill-tag">Postman</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Role-Based Access Control (RBAC)</span>
+          <span class="skill-tag">Authentication & Access Control</span>
+          <span class="skill-tag">HTTP Methods</span>
         </div>
       </div>
 
       <div class="skill-category">
-        <h3>Development Concepts</h3>
+        <h3>Programming Concepts</h3>
         <div class="skill-tags">
-          <span class="skill-tag">Async/Await</span>
           <span class="skill-tag">CRUD Operations</span>
+          <span class="skill-tag">Async/Await</span>
           <span class="skill-tag">JSON</span>
+          <span class="skill-tag">Responsive Design</span>
         </div>
       </div>
     </div>
