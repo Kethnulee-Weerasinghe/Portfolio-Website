@@ -8,12 +8,12 @@ A clean, fully responsive personal portfolio site built with HTML, CSS, JavaScri
 
 ## Overview
 
-- Project highlights with GitHub links
-- Downloadable resume
-- Timeline-based education section
 - Categorized technical skill set
-- Responsive layout for desktop, tablet, and mobile
 - Contact form
+- Downloadable resume
+- Project highlights with GitHub links
+- Timeline-based education section
+- Responsive layout for desktop, tablet, and mobile
 
 ## Technologies
 
@@ -21,7 +21,6 @@ A clean, fully responsive personal portfolio site built with HTML, CSS, JavaScri
 - CSS
 - JavaScript
 - React
-- Web3Forms (contact form handling)
 
 ## Running Locally
 
@@ -30,3 +29,4 @@ To view or edit the project locally:
 ```bash
 git clone https://github.com/Kethnulee-Weerasinghe/Portfolio-Website.git
 cd Portfolio-Website
+```
